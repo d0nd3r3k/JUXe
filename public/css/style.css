@@ -9,11 +9,17 @@ body{
   text-align: center;
   color: #e67e22;
   border-bottom: 4px solid #e67e22;
+  height: 77px;
 
 }
 .logo{
   font-size: 2.4em;
   font-weight: 300;
+}
+.nav-button{
+  position: absolute;
+  top: 12px;
+  font-size: 1.5em;
 }
 @media screen and (min-width: 1200px) {
     .container {
