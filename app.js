@@ -25,9 +25,6 @@ server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-//TODO: Socket.io 
-
-/*
 var io = require("socket.io").listen(server)
 
 // reduce logging
@@ -67,4 +64,4 @@ io.sockets.on('connection', function (socket) {
      }
    }
  });
-});*/
+});
