@@ -25,7 +25,13 @@ server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
+//TODO: Socket.io 
+
+/*
 var io = require("socket.io").listen(server)
+
+// reduce logging
+io.set('log level', 1); 
 
 //Socket.io Server
 io.sockets.on('connection', function (socket) {
@@ -61,60 +67,4 @@ io.sockets.on('connection', function (socket) {
      }
    }
  });
-});
-
-var remote = io
-  .of('/remote')
-  .on('connection', function (socket) {
-    socket.on("screen", function(data){
-	   socket.type = "screen";
-	   ss = socket;
-	   console.log("Screen ready...");
-	 });
-    socket.on("remote", function(data){
-   		socket.type = "remote";
-   		console.log("Remote ready...");
- 	});
-
- 	socket.on("controll", function(data){
-   		if(socket.type === "remote"){
-     		if(data.action === "tap"){
-         		if(ss != undefined){
-            		ss.emit("controlling", {action:"enter"});
-            	}
-		    }
-     		else if(data.action === "swipeLeft"){
-      			if(ss != undefined){
-          			ss.emit("controlling", {action:"goLeft"});
-          		}
-     		}
-     		else if(data.action === "swipeRight"){
-       			if(ss != undefined){
-           			ss.emit("controlling", {action:"goRight"});
-           }
-     	}
-   	}
-	});
-
-  });
-
-
-
-//Socket API Namespace
-var apps = io.of('/apps')
-  .on('connection', function (socket) {
-    //TODO: Socket portal for API
-  });
-
-/*
-io.sockets.on('connection', function (socket) {
-  socket.on('set nickname', function (name) {
-    socket.set('nickname', name, function () { socket.emit('ready'); });
-  });
-
-  socket.on('msg', function (message) {
-    socket.get('nickname', function (err, name) {
-      console.log(message + ' Chat message by ', name);
-    });
-  });
 });*/
