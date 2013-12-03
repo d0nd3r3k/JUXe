@@ -1,0 +1,3 @@
+ifconfig wlan0
+iwconfig wlan0 essid network_name key s:password
+dhclient wlan0
