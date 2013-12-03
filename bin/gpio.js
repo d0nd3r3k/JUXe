@@ -1,5 +1,22 @@
 var gpio = require("pi-gpio");
 
+//Set RGB Pins to GPIO
+var R = 11,
+	G = 15,
+	B = 16;
+
+//Displays Red color
+gpio.open(R, "output", function(err){
+	gpio.write(R,1,function(){});
+});
+gpio.open(G, "output", function(err){
+	gpio.write(G,0,function(){});	
+});
+gpio.open(B, "output", function(err){
+	gpio.write(B,0,function(){});
+});
+
+//Blink
 var i=0;
 gpio.open(11, "output", function(err){
 	setInterval(function() {
@@ -15,5 +32,5 @@ gpio.open(11, "output", function(err){
 				});
 			}
 	    i++
-	}, 400);	
-});
+	}, 500);	
+})
